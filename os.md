@@ -597,3 +597,375 @@ def walk(path):
 
 ---
 
+
+Got it 👍 — thanks for being honest.
+Let’s **reset completely** and learn this like you’ve *never seen it before*.
+No big words. No fast explanation. Just **simple + real understanding**.
+
+---
+
+# 🧠 First: What problem are we solving?
+
+Imagine this folder:
+
+```
+test/
+ ├── file1.txt
+ ├── file2.txt
+ └── logs/
+      ├── app.log
+      └── error.log
+```
+
+👉 Now someone asks you:
+
+> “Print all files inside this folder, including inside `logs` folder”
+
+---
+
+## ❌ Manual way (your brain thinking)
+
+* go to `test`
+* see files
+* then go to `logs`
+* then see files again
+
+👉 This is **painful if there are 100 folders**
+
+---
+
+# 🔥 So Python gives: `os.walk()`
+
+👉 It says:
+
+> “Don’t worry, I will go inside all folders for you”
+
+---
+
+# 🧩 Now understand `os.walk()` slowly
+
+---
+
+## 🔹 Code
+
+```python
+import os
+
+for a, b, c in os.walk("test"):
+    print(a)
+    print(b)
+    print(c)
+```
+
+---
+
+## 🔍 What are a, b, c?
+
+👉 Don’t panic — just think like this:
+
+| Variable | Meaning (VERY SIMPLE) |
+| -------- | --------------------- |
+| `a`      | current folder        |
+| `b`      | folders inside        |
+| `c`      | files inside          |
+
+---
+
+## 🔍 Step-by-step output
+
+### First loop
+
+```
+a = test
+b = ['logs']
+c = ['file1.txt', 'file2.txt']
+```
+
+---
+
+### Second loop
+
+```
+a = test/logs
+b = []
+c = ['app.log', 'error.log']
+```
+
+---
+
+👉 That’s it. That’s `os.walk()`
+
+---
+
+# 🧠 Now real understanding
+
+👉 `os.walk()` =
+
+> “Go to every folder → give me folder name + files inside”
+
+---
+
+# 🧠 Now your code (simplified)
+
+---
+
+## Original code
+
+```python
+for parent_path, directories, files in os.walk(parent_path):
+```
+
+---
+
+## Simple meaning
+
+👉 For every folder:
+
+* give me folder name
+* give me folders inside
+* give me files inside
+
+---
+
+---
+
+## Next line
+
+```python
+for file_name in files:
+```
+
+👉 Means:
+
+> “Now I only care about files”
+
+---
+
+---
+
+## Next
+
+```python
+file_path = os.path.join(parent_path, file_name)
+```
+
+---
+
+## 🔍 Why this?
+
+👉 Because:
+
+```
+parent_path = test
+file_name = file1.txt
+```
+
+👉 combine:
+
+```
+test/file1.txt
+```
+
+---
+
+👉 That is **full file path**
+
+---
+
+---
+
+## Next
+
+```python
+os.path.getsize(file_path)
+```
+
+👉 Gets file size
+
+---
+
+```python
+os.path.getatime(file_path)
+```
+
+👉 Gets last opened time
+
+---
+
+---
+
+# 🔥 FINAL IDEA OF os.walk
+
+👉 Instead of YOU doing:
+
+* go inside folder ❌
+* check files ❌
+
+👉 Python does:
+
+* go everywhere ✅
+* give all files ✅
+
+---
+
+---
+
+# 🧠 NOW SECOND PART: `pathlib`
+
+---
+
+## First understand problem
+
+Earlier we wrote:
+
+```python
+os.path.join("folder", "file.txt")
+```
+
+👉 Looks confusing right?
+
+---
+
+# 🔥 So `pathlib` makes it easy
+
+---
+
+## 🔹 Code
+
+```python
+from pathlib import Path
+
+p = Path("folder") / "file.txt"
+print(p)
+```
+
+---
+
+## Output
+
+```
+folder/file.txt
+```
+
+---
+
+## 🧠 Think like this
+
+👉 `/` means:
+
+> “join paths”
+
+---
+
+---
+
+# 🧠 Why `pathlib`?
+
+Because:
+
+| Old way      | Hard      |
+| ------------ | --------- |
+| os.path.join | confusing |
+
+| New way  | Easy   |
+| -------- | ------ |
+| Path() / | simple |
+
+---
+
+---
+
+# 🔹 Example
+
+```python
+from pathlib import Path
+
+folder = Path("test")
+file = "file1.txt"
+
+full_path = folder / file
+
+print(full_path)
+```
+
+👉 Output:
+
+```
+test/file1.txt
+```
+
+---
+
+---
+
+# 🧠 Now real use
+
+---
+
+## Check if file exists
+
+```python
+full_path.exists()
+```
+
+👉 Returns:
+
+* True
+* False
+
+---
+
+---
+
+## Get current folder
+
+```python
+Path.cwd()
+```
+
+👉 same as `pwd`
+
+---
+
+---
+
+## Get home folder
+
+```python
+Path.home()
+```
+
+👉 like:
+
+```
+C:\Users\Roshni
+```
+
+---
+
+---
+
+# 🧠 FINAL SIMPLE SUMMARY (VERY IMPORTANT)
+
+---
+
+## 🔹 os.walk
+
+👉 Python goes inside all folders and gives:
+
+* folder name
+* files
+* subfolders
+
+---
+
+## 🔹 pathlib
+
+👉 Easy way to handle file paths
+
+* `/` → join paths
+* `.exists()` → check file
+* `.cwd()` → current folder
+
+---
+
