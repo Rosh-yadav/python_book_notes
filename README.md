@@ -77,3 +77,20 @@ SLICING:
 
 COPY LIST:
 - new = old[:]
+
+
+##########################################################################################################################
+
+### COPYING LIST:
+- new = old[:] → copy
+- new = old → same list
+
+## TUPLE:
+- defined using ()
+- cannot modify
+- used for fixed data
+
+## LIST vs TUPLE:
+- list → mutable
+- tuple → immutable
+
