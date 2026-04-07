@@ -1,6 +1,6 @@
 # python_book_notes
 
-LISTS in Python
+## LISTS in Python
 
 1. List = collection of items
    Example: a = ['a', 'b', 'c']
@@ -26,7 +26,7 @@ LISTS in Python
 7. Lists are dynamic (can change anytime)
 
 
-Organizing Lists
+### Organizing Lists
 
 1. sort() → permanent sorting
 2. sorted() → temporary sorting
@@ -34,13 +34,13 @@ Organizing Lists
 4. len() → number of items
 
 Index Error:
-- Happens when index is out of range
-- Index starts from 0
+  - Happens when index is out of range
+  - Index starts from 0
 
 For Loop:
 - Used to loop through list
 - Syntax:
-  for item in list:
-      print(item)
+     for item in list:
+         print(item)
 
 - Used to avoid repetition
