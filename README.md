@@ -44,3 +44,36 @@ For Loop:
          print(item)
 
 - Used to avoid repetition
+
+
+
+  ############
+  ###  FOR LOOP:
+- for item in list:
+    do something
+
+- runs for every item
+
+INDENTATION:
+- indent = inside loop
+- no indent = outside loop
+
+RANGE:
+- range(start, end)
+- end not included
+
+LIST:
+- list(range())
+
+LIST COMPREHENSION:
+- [value for value in range()]
+
+FUNCTIONS:
+- min(), max(), sum()
+
+SLICING:
+- list[start:end]
+- [:] → full copy
+
+COPY LIST:
+- new = old[:]
