@@ -1,4 +1,3 @@
-Got it — I’ll structure your **Day 3 journey into clean, reusable notes** just like Day 1 & Day 2.
 
 ---
 
