@@ -275,7 +275,7 @@ import json
 import time
 from datetime import datetime
 
-# load config
+
 with open("config.json", "r") as file:
     data = json.load(file)
 
@@ -320,7 +320,6 @@ while True:
 
 
 
-
 ---
 
 ## 🚀 Day 3 Status
@@ -334,21 +333,5 @@ while True:
 
 ---
 
-## 🧠 Key Takeaway
-
-Moved from:
-
-* Hardcoded script → Config-driven system
-* Fixed values → Dynamic values
-🧠 What you just built (VERY IMPORTANT)
-
-👉 This is now:
-
-Continuous monitoring
-Daily log rotation
-Alert system
-Config-driven
-
----
 
 
