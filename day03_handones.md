@@ -261,21 +261,71 @@ CPU usage is 85%
 ⚠️ CPU usage is high
 ```
 
-🚀 Next Step (Final Day 3 Upgrade)
-
-If you want to go one level higher, next we can:
-
-Add alerts into file also
-Add separate log file per day
-Make it run like a real service
 
 
+
+# 🚀 🔹 2. Separate log file per day
+
+👉 Instead of one file, create file like:
+
+```text
+2026-04-28.txt
+```
+
+---
+
+## ✅ Change filename
+
+```python
+log_file = datetime.now().strftime("%Y-%m-%d") + ".txt"
+```
+
+---
+
+
+
+👉 Now each day gets its own log file
+👉 This is used in real systems
+
+---
+
+# 🚀 🔹 3. Make it behave like a service
+
+Right now:
+👉 Script runs 3 times and stops
+
+We want:
+👉 It runs continuously like a monitoring tool
+
+---
+
+## ✅ Replace loop
+
+```python
+while True:
+```
+
+---
+
+## ⚠️ VERY IMPORTANT (don’t crash system)
+
+Always keep:
+
+```python
+time.sleep(5)
+```
+
+---
+
+# 🧠 Final Upgraded Version (Clean & Real)
+
+```python
 import psutil
 import json
 import time
 from datetime import datetime
 
-
+# load config
 with open("config.json", "r") as file:
     data = json.load(file)
 
@@ -317,6 +367,9 @@ while True:
         output.write("\n")
 
     time.sleep(5)
+```
+
+---
 
 
 
